@@ -2,12 +2,15 @@
 
 > Todoアプリ
 
+![image](http://www.rinsymbol.sakura.ne.jp/github_images/rngd_todo.png)
+
+
 * [x] Taskの作成
 * [x] Taskの参照
-* [] Taskの更新
-* [] Taskの削除
-* [] Taskの永続化
-* [] Firebaseとの連携
+* [ ] Taskの更新
+* [ ] Taskの削除
+* [ ] Taskの永続化
+* [ ] Firebaseとの連携
 
 ## 備忘録(必要なライブラリ)
 
