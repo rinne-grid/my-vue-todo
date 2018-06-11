@@ -1,31 +1,22 @@
 <template>
-  <div id="app">
+  <div>
     <!-- ナビゲーション -->
     <navigation-bar />
-    <!-- タスク登録コンポーネント -->
-    <create-task />
+    <!-- タスクコンポーネント -->
+    <router-view />
     <!-- <router-view/> -->
-    <!-- タスク表示コンポーネント -->
-    <reference-tasks v-bind:tasks="tasks" />
   </div>
 </template>
 
 <script>
 import NavigationBar from './components/menu/NavigationBar'
-import CreateTask from './components/CreateTask'
-import ReferenceTasks from './components/ReferenceTasks'
+import Tasks from './components/tasks/Tasks'
 
 export default {
   name: 'App',
-  data () {
-    return {
-      tasks: []
-    }
-  },
   components: {
     NavigationBar,
-    CreateTask,
-    ReferenceTasks
+    Tasks
   }
 }
 </script>

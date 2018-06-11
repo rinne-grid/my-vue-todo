@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: 'create-task',
+  name: 'CreateTask',
   data () {
     return {
       modelTaskText: '',
@@ -25,10 +25,11 @@ export default {
   },
   methods: {
     taskCreate: function () {
-    // this.memoryTask = this.tasks
-    // this.memoryTask.push(this.modelTaskText)
-    // console.log(this.memoryTask)
-      this.$parent.tasks.push(this.modelTaskText)
+      // this.memoryTask = this.tasks
+      // this.memoryTask.push(this.modelTaskText)
+      // console.log(this.memoryTask)
+      // this.$parent.tasks.push(this.modelTaskText)
+      this.$emit('create-task', this.modelTaskText)
       this.modelTaskText = ''
     }
   }
