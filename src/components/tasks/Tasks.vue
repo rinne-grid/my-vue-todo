@@ -23,6 +23,9 @@ export default {
   methods: {
     createTask: function (task) {
       this.tasks.push(task)
+    },
+    updateTask: function (task, index) {
+      this.tasks.splice(this.tasks, index, task)
     }
   }
 }

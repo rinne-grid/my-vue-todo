@@ -10,7 +10,7 @@
       <tbody>
         <tr v-for="(task, index) in tasks" :key="index">
           <td>{{index+1}}</td>
-          <td>{{task}}</td>
+          <td><router-link @update-task="updateTask"  :to="{ name: 'update', params: { id: index+1, taskName: task}, props: { tasks: tasks }}">{{task}}</router-link></td>
         </tr>
       </tbody>
     </table>
@@ -22,6 +22,11 @@ export default {
   props: {
     'tasks': {
       type: Array
+    }
+  },
+  methods: {
+    updateTask: function () {
+      return this.$parent.updateTask
     }
   }
 }
