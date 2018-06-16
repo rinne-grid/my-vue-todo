@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="update-task">
     <div class="field">
       <label class="label">タスクを更新</label>
       <div class="control">
@@ -8,42 +8,37 @@
     </div>
     <div class="field is-grouped is-grouped-right">
       <div class="control">
-        <button @click="updateTask" class="btn is-link">更新</button>
+        <button @click="updateTask" class="button is-link">更新</button>
       </div>
     </div>
-
-    {{myFunc()}}
   </div>
 </template>
 
 <script>
 export default {
   name: 'TaskDetail',
-  data () {
+  data: function () {
     return {
       newTaskName: ''
-    }
-  },
-  props: {
-    tasks: {
-      type: Array
     }
   },
   mounted: function () {
     this.newTaskName = this.$route.params.taskName
   },
   methods: {
-    myFunc: function () {
-      console.log(this.$route.params)
-    },
     updateTask: function () {
-      let taskIndex = this.$route.params.index
-      this.$emit('update-task', this.taskName, taskIndex)
+      let taskIndex = this.$route.params.id
+      let tasks = JSON.parse(localStorage.getItem('tasks'))
+      tasks[taskIndex - 1] = this.newTaskName
+      localStorage.setItem('tasks', JSON.stringify(tasks))
       this.$router.push('/')
     }
   }
 }
 </script>
 
-<style>
+<style scope>
+.update-task {
+  padding: 30px;
+}
 </style>

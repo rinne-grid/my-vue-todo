@@ -10,7 +10,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: Tasks
+      component: Tasks,
+      name: 'index'
     },
     {
       path: '/hello',

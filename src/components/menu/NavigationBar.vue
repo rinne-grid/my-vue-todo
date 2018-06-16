@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar is-transparent is-info">
       <div class="navbar-brand">
-        <a class="navbar-item"><span class="brand-text">Rngd Todo</span></a>
+        <router-link :to="{name: 'index'}"><a class="navbar-item"><span class="brand-text">Rngd Todo</span></a></router-link>
         <div class="navbar-burger" data-target="navMenu" aria-expanded="false">
           <span></span>
           <span></span>

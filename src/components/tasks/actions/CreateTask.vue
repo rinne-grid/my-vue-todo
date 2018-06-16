@@ -1,14 +1,14 @@
 <template>
   <div class="create-task">
-    <div class="field">
+    <form class="field" v-on:submit="taskCreate" >
       <label class="label">タスク</label>
       <div class="control">
         <input type="text" v-model="modelTaskText" class="input" />
       </div>
-    </div>
+    </form>
     <div class="field is-grouped is-grouped-right">
       <div class="control">
-        <button @click="taskCreate" class="button is-link">タスクを追加</button>
+        <button @click="taskCreate"  class="button is-link">タスクを追加</button>
       </div>
     </div>
   </div>
@@ -19,16 +19,11 @@ export default {
   name: 'CreateTask',
   data () {
     return {
-      modelTaskText: '',
-      memoryTask: []
+      modelTaskText: ''
     }
   },
   methods: {
     taskCreate: function () {
-      // this.memoryTask = this.tasks
-      // this.memoryTask.push(this.modelTaskText)
-      // console.log(this.memoryTask)
-      // this.$parent.tasks.push(this.modelTaskText)
       this.$emit('create-task', this.modelTaskText)
       this.modelTaskText = ''
     }

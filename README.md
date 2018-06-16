@@ -7,8 +7,8 @@
 
 * [x] Taskの作成
 * [x] Taskの参照
-* [ ] Taskの更新
-* [ ] Taskの削除
+* [x] Taskの更新
+* [x] Taskの削除
 * [ ] Taskの永続化
 * [ ] Firebaseとの連携
 

@@ -16,6 +16,12 @@ export default {
       tasks: []
     }
   },
+  mounted () {
+    this.tasks = JSON.parse(localStorage.getItem('tasks')) || []
+    if (this.tasks === null || this.tasks === undefined) {
+      this.tasks = []
+    }
+  },
   components: {
     CreateTask,
     ReferenceTasks
@@ -23,9 +29,13 @@ export default {
   methods: {
     createTask: function (task) {
       this.tasks.push(task)
+      this.saveTask()
     },
     updateTask: function (task, index) {
-      this.tasks.splice(this.tasks, index, task)
+      this.saveTask()
+    },
+    saveTask: function () {
+      localStorage.setItem('tasks', JSON.stringify(this.tasks))
     }
   }
 }
