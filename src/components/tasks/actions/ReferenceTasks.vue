@@ -11,8 +11,8 @@
       <tbody>
         <tr v-for="(task, index) in tasks" :key="index" v-if="tasks !== null && tasks !== undefined">
           <td>{{index+1}}</td>
-          <td><router-link :to="{ name: 'update', params: { id: index+1, taskName: task}, props: { tasks: tasks }}">{{task}}</router-link></td>
-          <td><button class="button is-danger" @click="deleteTask($event, index)">削除</button></td>
+          <td><router-link :to="{ name: 'update', params: { id: task.id, task: task}, props: { tasks: tasks }}">{{task.contents}}</router-link></td>
+          <td><button class="button is-danger" @click="deleteTask($event, task.id)">削除</button></td>
         </tr>
       </tbody>
     </table>
@@ -33,6 +33,7 @@
   </div>
 </template>
 <script>
+
 export default {
   name: 'ReferenceTasks',
   props: {
@@ -41,10 +42,16 @@ export default {
     }
   },
   methods: {
-    deleteTask: function (event, index) {
-      console.log(event, index)
-      this.tasks.splice(index, 1)
-      this.$parent.saveTask()
+    // --------------------------------------------------
+    // タスク(front)削除とAPI呼び出し
+    // --------------------------------------------------
+    deleteTask: function (event, id) {
+      this.tasks.forEach( (task, index) => {
+        if (task.id === id) {
+          this.tasks.splice(index, 1)
+        }
+      })
+      this.$parent.deleteTask(id)
     }
   }
 }

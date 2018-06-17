@@ -9,18 +9,24 @@
 * [x] Taskの参照
 * [x] Taskの更新
 * [x] Taskの削除
-* [ ] Taskの永続化
+* [x] Taskの永続化
   * [x] Taskの参照
   * [x] Taskの作成
-  * [ ] Taskの更新
-  * [ ] Taskの削除
+  * [x] Taskの更新
+  * [x] Taskの削除
 * [ ] Firebaseとの連携
+* [ ] ユーザ認証
 
 ## 備忘録(必要なライブラリ)
 
 * bulma
 * sass-loader
 * node-sass
+
+
+## 必要なバックエンドAPIアプリ
+
+[my-vue-todo-backend](https://github.com/rinne-grid/my-vue-todo-backend)
 
 ## Build Setup
 

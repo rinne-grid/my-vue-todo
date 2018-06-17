@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+import { API_END_POINT, API_HEADER, API_UPDATE_TODO } from '../../consts/TodoConsts'
 export default {
   name: 'TaskDetail',
   data: function () {
@@ -23,14 +25,28 @@ export default {
     }
   },
   mounted: function () {
-    this.newTaskName = this.$route.params.taskName
+    this.newTaskName = this.$route.params.task.contents
   },
   methods: {
+    // --------------------------------------------------
+    // タスク(front)更新用のAPI呼び出し
+    // --------------------------------------------------
     updateTask: function () {
-      let taskIndex = this.$route.params.id
-      let tasks = JSON.parse(localStorage.getItem('tasks'))
-      tasks[taskIndex - 1] = this.newTaskName
-      localStorage.setItem('tasks', JSON.stringify(tasks))
+      let pk = this.$route.params.task.id
+      axios.create(API_HEADER)
+      .put(API_END_POINT + API_UPDATE_TODO, {
+        'id': pk,
+        'contents': this.newTaskName,
+        'user': '1'
+      })
+      .then(response => {
+        console.log('更新成功')
+      })
+      .catch(error => {
+        if (error) { }
+        console.log(error)
+        console.log('更新失敗')
+      })
       this.$router.push('/')
     }
   }
