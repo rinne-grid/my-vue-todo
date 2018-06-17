@@ -2,7 +2,7 @@
 
 > Todoアプリ
 
-![image](http://www.rinsymbol.sakura.ne.jp/github_images/rngd_todo.png)
+![image](http://www.rinsymbol.sakura.ne.jp/github_images/rngd_todo2.png)
 
 
 * [x] Taskの作成
