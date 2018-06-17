@@ -26,5 +26,5 @@ export default {
   name: 'NavigationBar'
 }
 </script>
-<style scope>
+<style scoped>
 </style>

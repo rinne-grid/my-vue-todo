@@ -30,7 +30,7 @@ export default {
   }
 }
 </script>
-<style scope>
+<style scoped>
 .create-task {
   padding: 30px;
 }

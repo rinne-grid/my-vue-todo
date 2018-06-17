@@ -10,6 +10,10 @@
 * [x] Taskの更新
 * [x] Taskの削除
 * [ ] Taskの永続化
+  * [x] Taskの参照
+  * [x] Taskの作成
+  * [ ] Taskの更新
+  * [ ] Taskの削除
 * [ ] Firebaseとの連携
 
 ## 備忘録(必要なライブラリ)
