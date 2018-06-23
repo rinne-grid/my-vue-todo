@@ -14,6 +14,7 @@
   * [x] Taskの作成
   * [x] Taskの更新
   * [x] Taskの削除
+* [x] Vuex導入
 * [ ] Firebaseとの連携
 * [ ] ユーザ認証
 
