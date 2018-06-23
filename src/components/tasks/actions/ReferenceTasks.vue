@@ -46,12 +46,8 @@ export default {
     // タスク(front)削除とAPI呼び出し
     // --------------------------------------------------
     deleteTask: function (event, id) {
-      this.tasks.forEach( (task, index) => {
-        if (task.id === id) {
-          this.tasks.splice(index, 1)
-        }
-      })
-      this.$parent.deleteTask(id)
+      this.$store.dispatch('deleteTaskService', id)
+      // this.$parent.deleteTask(id)
     }
   }
 }

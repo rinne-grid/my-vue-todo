@@ -1,11 +1,13 @@
 <template>
   <div class="update-task">
-    <div class="field">
-      <label class="label">タスクを更新</label>
-      <div class="control">
-        <input type="text" v-model="newTaskName" class="input" />
+    <form v-on:submit="updateTask">
+      <div class="field">
+        <label class="label">タスクを更新</label>
+        <div class="control">
+          <input type="text" v-model="newTaskName" class="input" />
+        </div>
       </div>
-    </div>
+    </form>
     <div class="field is-grouped is-grouped-right">
       <div class="control">
         <button @click="updateTask" class="button is-link">更新</button>
@@ -15,8 +17,6 @@
 </template>
 
 <script>
-import axios from 'axios'
-import { API_END_POINT, API_HEADER, API_UPDATE_TODO } from '../../consts/TodoConsts'
 export default {
   name: 'TaskDetail',
   data: function () {
@@ -29,24 +29,16 @@ export default {
   },
   methods: {
     // --------------------------------------------------
-    // タスク(front)更新用のAPI呼び出し
+    // タスク更新
     // --------------------------------------------------
     updateTask: function () {
       let pk = this.$route.params.task.id
-      axios.create(API_HEADER)
-      .put(API_END_POINT + API_UPDATE_TODO, {
+      let task = {
         'id': pk,
         'contents': this.newTaskName,
         'user': '1'
-      })
-      .then(response => {
-        console.log('更新成功')
-      })
-      .catch(error => {
-        if (error) { }
-        console.log(error)
-        console.log('更新失敗')
-      })
+      }
+      this.$store.dispatch('updateTaskService', task)
       this.$router.push('/')
     }
   }

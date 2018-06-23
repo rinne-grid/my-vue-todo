@@ -27,7 +27,13 @@ export default {
     // タスク(front)作成とAPI呼び出し
     // --------------------------------------------------
     taskCreate: function () {
-      this.$emit('create-task', this.modelTaskText)
+      // ここから
+      let task = {
+        id: '',
+        contents: this.modelTaskText,
+        user: '1'
+      }
+      this.$emit('create-task', task)
       this.modelTaskText = ''
     }
   }
