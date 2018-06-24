@@ -10,7 +10,7 @@
     </form>
     <div class="field is-grouped is-grouped-right">
       <div class="control">
-        <button @click="updateTask" class="button is-link">更新</button>
+        <button @click="updateTask" v-bind:class="taskUpdateButtonClass">更新</button>
       </div>
     </div>
   </div>
@@ -21,7 +21,12 @@ export default {
   name: 'TaskDetail',
   data: function () {
     return {
-      newTaskName: ''
+      newTaskName: '',
+      taskUpdateButtonClass: {
+        'button': true,
+        'is-link': true,
+        'is-loading': false
+      }
     }
   },
   mounted: function () {
@@ -38,8 +43,14 @@ export default {
         'contents': this.newTaskName,
         'user': '1'
       }
-      this.$store.dispatch('updateTaskService', task)
-      this.$router.push('/')
+      this.toggleBtnLoading()
+      this.$store.dispatch('TaskModule/updateTaskService', task).then(() => {
+        this.toggleBtnLoading()
+        this.$router.push('/')
+      })
+    },
+    toggleBtnLoading () {
+      this.taskUpdateButtonClass['is-loading'] = !this.taskUpdateButtonClass['is-loading']
     }
   }
 }

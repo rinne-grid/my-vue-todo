@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 import Tasks from '@/components/tasks/Tasks'
-import HelloWorld from '@/components/HelloWorld'
 import TaskDetail from '@/components/tasks/TaskDetail'
+import Login from '@/components/auth/Login'
 
 Vue.use(Router)
 
@@ -14,8 +15,9 @@ export default new Router({
       name: 'index'
     },
     {
-      path: '/hello',
-      component: HelloWorld
+      path: '/login',
+      component: Login,
+      name: 'login'
     },
     {
       path: '/update/:id/',

@@ -15,8 +15,14 @@
   * [x] Taskの更新
   * [x] Taskの削除
 * [x] Vuex導入
-* [ ] Firebaseとの連携
 * [ ] ユーザ認証
+  * [x] JWTによるログイン
+  * [x] JWTによるTaskの参照
+  * [ ] JWTによるTaskの作成
+  * [ ] JWTによるTaskの更新
+  * [ ] JWTによるTaskの削除
+* [ ] Firebaseとの連携
+* [ ] Loading表示
 
 ## 備忘録(必要なライブラリ)
 

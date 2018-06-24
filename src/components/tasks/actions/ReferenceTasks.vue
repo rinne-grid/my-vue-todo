@@ -46,7 +46,7 @@ export default {
     // タスク(front)削除とAPI呼び出し
     // --------------------------------------------------
     deleteTask: function (event, id) {
-      this.$store.dispatch('deleteTaskService', id)
+      this.$store.dispatch('TaskModule/deleteTaskService', id)
       // this.$parent.deleteTask(id)
     }
   }

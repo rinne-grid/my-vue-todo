@@ -8,7 +8,7 @@
     </form>
     <div class="field is-grouped is-grouped-right">
       <div class="control">
-        <button @click="taskCreate"  class="button is-link">タスクを追加</button>
+        <button @click="taskCreate"  v-bind:class="taskCreateButtonClass">タスクを追加</button>
       </div>
     </div>
   </div>
@@ -19,7 +19,12 @@ export default {
   name: 'CreateTask',
   data () {
     return {
-      modelTaskText: ''
+      modelTaskText: '',
+      taskCreateButtonClass: {
+        'button': true,
+        'is-link': true,
+        'is-loading': false
+      }
     }
   },
   methods: {
@@ -33,8 +38,11 @@ export default {
         contents: this.modelTaskText,
         user: '1'
       }
-      this.$emit('create-task', task)
+      this.$emit('create-task', task, this.toggleBtnLoading)
       this.modelTaskText = ''
+    },
+    toggleBtnLoading () {
+      this.taskCreateButtonClass['is-loading'] = !this.taskCreateButtonClass['is-loading']
     }
   }
 }

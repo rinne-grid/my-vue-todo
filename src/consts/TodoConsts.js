@@ -17,3 +17,5 @@ export const API_HEADER = {
   },
   responseType: 'json'
 }
+
+export const API_JWT_LOGIN = '/jwt-token'
