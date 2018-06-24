@@ -34,6 +34,8 @@ const store = new Vuex.Store({
     // タスク作成API呼び出し
     // --------------------------------------------------
     createTaskService ( { commit }, taskObj) {
+      API_HEADER['headers']['Authorization'] = 'JWT ' /* + jwt_token */
+
       axios.create(API_HEADER)
       .post(API_END_POINT + API_CREATE_TODO,
       {
